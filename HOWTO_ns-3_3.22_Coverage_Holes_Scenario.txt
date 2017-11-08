@@ -1,0 +1,41 @@
+-------------- Instalar o ns-3 3.22 e rodar o código "Coverage Holes Scenario" --------------
+(baseado em "HOWTO_ns_3_gppcom.txt")
+
+************************************
+O cenário é descrito/usado nos artigos:
+
+Simulating LTE mobility management in presence of coverage holes with ns-3
+http://dl.acm.org/citation.cfm?id=2832220
+http://www.ibadkureshi.com/SIMUTOOLS/S3/P305.PDF
+https://bitbucket.org/zoraze_cttc/ns-3-dev-obstacle
+
+Machine learning based handover management for improved QoE in LTE
+http://ieeexplore.ieee.org/document/7502901/
+
+************************************
+
+Se o ns-3 3.22 não estiver instalado no computador que você irá rodar, siga os passos de instalação direta do NS-3.22:
+
+1. Baixar o ns-3 3.22 e arquivos do código "Coverage Holes Scenario"
+
+sudo wget https://bitbucket.org/zoraze_cttc/ns-3-dev-obstacle/get/419fc259a182.zip
+
+2. Extrair os arquivos baixados
+
+unzip 419fc259a182.zip
+
+3. Mudar para a pasta principal do ns-3 3.22
+
+cd zoraze_cttc-ns-3-dev-obstacle-419fc259a182
+
+4. Configurar retirando o warnings como errors:
+
+CXXFLAGS="-Wall -g -O0" ./waf --build-profile=optimized --enable-examples --enable-tests configure
+
+5. Compilar
+
+./waf
+
+6. Rodar o Script_runner para realizar uma campanha de teste
+
+./Script_runner	

@@ -1,0 +1,16 @@
+targetcell=2
+firstrun=1
+nruns=1000
+
+file_object1  = open(str("HOstats-"+str(targetcell)+".txt"), 'w')
+
+file_object1.write("nRun\tangle\ttargetCellId\tdownloadTime\trxBytes\t")
+file_object1.write("rsrp1\trsrq1\trsrp2\trsrq2\trsrp3\trsrq3\t")
+file_object1.write("previousrsrp1\tpreviousrsrq1\tpreviousrsrp2\tpreviousrsrq2\tpreviousrsrp3\tpreviousrsrq3\n")
+
+for i in range(firstrun,firstrun+nruns+1):
+	try:
+		file_object2  = open(str("filecomplete-"+str(targetcell)+"-"+str(i)), 'r')
+		file_object1.write(file_object2.read())
+	except:
+		pass

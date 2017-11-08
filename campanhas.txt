@@ -1,0 +1,93 @@
+- Script Original (apenas para comparar os resultados):
+OkumuraHata t2 
+OkumuraHata t3 
+*****
+ok
+ok
+*****
+
+
+Cost231 t2 
+Cost231 t3 
+*****->Original
+Não estão em T2: 
+array([ 24,  86, 113, 114, 118, 139, 155, 160, 176])
+
+Não estão em T3: 
+array([  1,   2,  27,  28,  42,  76,  88,  92,  94, 101, 131, 165, 166, 167])
+*****
+
+
+- Script Modificado:
+
+OkumuraHata t2 
+OkumuraHata t3 
+*****->Modificado1
+Não estão em T2: 
+array([ 94, 128, 192])
+
+Não estão em T3: 
+array([2])
+*****
+
+
+OhBuildings t2 (comparar resultados com OkumuraHata) 
+OhBuildings t3 (comparar resultados com OkumuraHata) 
+*****->Modificado2
+Não estão em T2: 
+array([ 23,  34,  46,  58,  81,  93, 125, 196, 197])
+
+Não estão em T3: 
+array([ 85,  87, 123, 132, 154, 189])
+*****
+
+
+OhBuildings t1 com shadowing 
+OhBuildings t2 com shadowing 
+OhBuildings t3 com shadowing 
+*****->Modificado3
+ok
+
+Não estão em T2: 
+array([ 23,  24,  34,  46,  63,  77,  79,  81,  93,  98, 118, 125, 130, 196])
+
+Não estão em T3: 
+array([ 32,  59,  63,  85, 123, 136, 189])
+*****
+
+
+
+OhBuildings t2 com shadowing (treinamento) 
+OhBuildings t3 com shadowing (treinamento) 
+*****->Modificado4
+Não estão em T2: 
+array([215, 235, 238, 254, 258, 260, 262, 267, 270, 276, 290, 294, 302,
+       304, 310, 320, 324, 330, 336, 338, 342, 344, 346, 358, 360, 368,
+       371, 378, 382, 384, 386, 388, 389, 392, 394, 399])
+
+Não estão em T3: 
+array([202, 207, 222, 240, 287, 316, 342, 349, 361, 369])
+*****
+
+--------------------------------------------
+ 
+OhBuildings A2A4RSRP com shadowing 
+OhBuildings A2A4RSRQ com shadowing 
+OhBuildings A3RSRP com shadowing
+*****
+Não estão em a2a4rsrp: 
+array([ 23,  28,  32,  33,  44,  48,  52,  58,  63,  69,  73,  79,  81,
+        88,  98, 110, 118, 130, 154, 159, 173, 189, 193])
+
+Não estão em a2a4rsrq: 
+array([  1,   2,  13,  23,  32,  47,  62,  70,  83, 119, 127, 129, 147,
+       153, 154, 156, 157, 158, 169, 181, 185, 186])
+
+Não estão em a3rsrp: 
+array([  2,   4,   7,  19,  23,  33,  41,  47,  67,  68,  77,  79,  84,
+        99, 100, 106, 109, 113, 125, 135, 143, 147, 154, 174, 181, 182,
+       185, 188, 189])
+*****
+
+
+

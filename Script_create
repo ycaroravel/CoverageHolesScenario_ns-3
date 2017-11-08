@@ -1,0 +1,36 @@
+import os
+import stat
+
+firstrun=1
+targetcell=3
+jobs=200
+cores=100
+minutes_per_sim=20
+jobs_core=int(jobs/cores)
+
+
+file_object1  = open(str("j"+str(jobs)+"t"+str(targetcell)+".sh"), 'w')
+
+
+j=firstrun
+for i in range(1,cores+1):
+	file_object2  = open(str("Script_runner_t"+str(targetcell)+"s"+str(j)+"-"+str(j+jobs_core-1)), 'w')
+
+	file_object2.write("#!/bin/bash\n\n")
+	file_object2.write("#SBATCH --ntasks=1\n")
+	file_object2.write("#SBATCH -t"+str(minutes_per_sim*jobs_core)+"\n")
+	file_object2.write("#SBATCH --mail-user=ycaroravel@gmail.com\n")
+	file_object2.write("#SBATCH --mail-type=ALL\n\n")
+
+	file_object2.write("#!/bin/bash\n# Freq_reuse\n")
+	file_object2.write("echo \" This Script will take care of Run Value. Written By Zoraze Ali\"\n")
+	file_object2.write("for i in {"+str(j)+".."+str(j+jobs_core-1)+"}; do\n\necho \" This is Run $i \"\n\n")
+	file_object2.write("./waf --run=\"scratch/Coveragehole_simulation_script --generateRem=0 --remRbId=15 --nUes=3 --macroEnbBandwidth=25 --useTcp=1 --targetCellId="+str(targetcell)+" --nRun=$i --simTime=100\"\n\n")
+	file_object2.write("done\n")
+	
+	if (i==cores): 
+		file_object1.write(str("sbatch Script_runner_t"+str(targetcell)+"s"+str(j)+"-"+str(j+jobs_core-1)+" wait"))
+	else:
+		file_object1.write(str("sbatch Script_runner_t"+str(targetcell)+"s"+str(j)+"-"+str(j+jobs_core-1)+" & \n"))	
+
+	j=j+jobs_core
