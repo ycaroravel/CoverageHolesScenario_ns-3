@@ -1,0 +1,13 @@
+#!c++
+set view map
+set xlabel "X (m)"
+set ylabel "Y (m)"
+set cbrange [-6:30]
+set cbtics 2
+set cblabel "SINR (dB)"
+set xrange [0:2000]
+set yrange [0:2000]
+set multiplot
+unset key
+plot "Sn1_v2-SINR_ping.rem" using ($1):($2):(10*log10($4)) with image
+unset multiplot

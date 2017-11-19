@@ -1,0 +1,1 @@
+set object 1 rect from 680,510 to 694,515 front fs empty  border 3 
